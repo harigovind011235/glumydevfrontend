@@ -1,0 +1,58 @@
+import React from "react";
+import Navbar from "../components/Navbar";
+import JobSearch from "../components/JobSearch";
+import HomeCard from "../components/HomeCard";
+import Footer from '../components/Footer';
+import { Col, Container, Row } from "react-bootstrap";
+
+function HomeScreen() {
+  return (
+    <>
+      <Navbar />
+      <JobSearch />
+      <h2 style={{ textAlign: "center", marginTop: "40px" }}>
+        Featured Companies
+      </h2>
+      <Container>
+        <Row style={{ marginTop: "40px" }}>
+          <Col className="lg-4">
+            <HomeCard />
+          </Col>
+          <Col className="lg-3">
+            <HomeCard />
+          </Col>
+          <Col className="lg-3">
+            <HomeCard />
+          </Col>
+          <Col className="lg-3">
+            <HomeCard />
+          </Col>
+        </Row>
+      </Container>
+      <h2 style={{ textAlign: "center", marginTop: "40px" }}>
+        Featured Jobs
+      </h2>
+      <Container>
+        <Row style={{ marginTop: "40px" }}>
+          <Col className="lg-4">
+            <HomeCard />
+          </Col>
+          <Col className="lg-3">
+            <HomeCard />
+          </Col>
+          <Col className="lg-3">
+            <HomeCard />
+          </Col>
+          <Col className="lg-3">
+            <HomeCard />
+          </Col>
+        </Row>
+      </Container>
+      <Container style={{ marginTop: "60px" }}>
+        <Footer/>
+      </Container>
+    </>
+  );
+}
+
+export default HomeScreen;
