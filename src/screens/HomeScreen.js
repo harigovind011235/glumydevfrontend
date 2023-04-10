@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+import Header from "../components/Header";
 import JobSearch from "../components/JobSearch";
 import HomeCard from "../components/HomeCard";
 import Footer from '../components/Footer';
@@ -8,7 +8,7 @@ import { Col, Container, Row } from "react-bootstrap";
 function HomeScreen() {
   return (
     <>
-      <Navbar />
+      <Header />
       <JobSearch />
       <h2 style={{ textAlign: "center", marginTop: "40px" }}>
         Featured Companies
