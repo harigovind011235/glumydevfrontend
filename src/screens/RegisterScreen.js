@@ -16,6 +16,7 @@ function RegisterScreen() {
     placementStatus: "",
     companyName: "",
     userType: "Alumni",
+    resumeFile: null,
   });
 
   const handleChange = (e) => {
@@ -71,6 +72,13 @@ function RegisterScreen() {
                   <option value="Employer">Employer</option>
                 </Form.Control>
               </Form.Group>
+              {user.userType === "Alumni" && (
+                <Form.Group controlId="formResume">
+                  <Form.Label>Upload Resume</Form.Label>
+                  <Form.Control type="file" onChange={handleChange} />
+                </Form.Group>
+              )}
+
               <Form.Group controlId="firstName">
                 <Form.Label>First Name</Form.Label>
                 <Form.Control
