@@ -5,6 +5,7 @@ import Loader from "./components/Loader";
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const RegisterScreen = lazy(() => import("./screens/RegisterScreen"));
 const LoginScreen = lazy(() => import("./screens/LoginScreen"));
+const OurCompanyScreen = lazy(() => import("./screens/OurCompanyScreen"));
 
 const routes = createBrowserRouter([
   {
@@ -31,6 +32,15 @@ const routes = createBrowserRouter([
       </Suspense>
     ),
   },
+  {
+    path: "/ourcompanies",
+    element: (
+      <Suspense fallback={<Loader></Loader>}>
+        <OurCompanyScreen/>
+      </Suspense>
+    ),
+  },
+  
 ]);
 
 export default routes;
