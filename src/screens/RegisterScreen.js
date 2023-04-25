@@ -1,40 +1,86 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/Header";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { userRegister } from "../actions/userActions";
+import Message from "../components/Message";
+import Loader from "../components/Loader";
 
 function RegisterScreen() {
-  const [user, setUser] = useState({
+  const dispatch = useDispatch();
+  const registerUser = useSelector((state) => state.registerUser);
+  const { loading, message } = registerUser;
+
+  const initialState = {
     username: "",
     password: "",
     firstName: "",
     lastName: "",
     email: "",
     phone: "",
-    highestQualification: "",
-    courseStudied: "",
-    batchDetails: "",
-    placementStatus: "",
+    highestQualification: "None",
+    courseStudied: "None",
+    batchDetails: "None",
+    placementStatus: "None",
     companyName: "",
     userType: "Alumni",
-    resumeFile: null,
-  });
+    resumeFile: '',
+  }
+  const [user, setUser] = useState(initialState);
+
+  const [showSuccessMsg, setshowSuccessMsg] = useState(false);
+
+  useEffect(() => {
+    if (message && message["status"] === "success") {
+      setshowSuccessMsg(true);
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
+  }, [dispatch, message]);
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+  const handleFile = (e) => {
+    setUser({...user,resumeFile:e.target.files[0]});
+    console.log(user.resumeFile)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // handle form submission here
+    const formData = new FormData();
+    formData.append("username", user.username);
+    formData.append("password", user.password);
+    formData.append("firstName", user.firstName);
+    formData.append("lastName", user.lastName);
+    formData.append("email", user.email);
+    formData.append("phone", user.phone);
+    formData.append("highestQualification", user.highestQualification);
+    formData.append("courseStudied", user.courseStudied);
+    formData.append("batchDetails", user.batchDetails);
+    formData.append("placementStatus", user.placementStatus);
+    formData.append("companyName", user.companyName);
+    formData.append("userType", user.userType);
+    formData.append("resumeFile", user.resumeFile);
+    console.log(formData);
+    dispatch(userRegister(formData));
+    setUser(initialState);
   };
+
   return (
     <>
       <Header />
+      {showSuccessMsg && (
+        <Message variant="success">SuccessFully Registered</Message>
+      )}
+      {loading && <Loader></Loader>}
       <Container className="mt-4">
         <Row>
           <Col md={{ span: 6, offset: 3 }}>
             <h1 className="text-center my-4">Register</h1>
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} encType="multipart/form-data">
               <Form.Group controlId="username">
                 <Form.Label>Username</Form.Label>
                 <Form.Control
@@ -73,9 +119,14 @@ function RegisterScreen() {
                 </Form.Control>
               </Form.Group>
               {user.userType === "Alumni" && (
-                <Form.Group controlId="formResume">
+                <Form.Group controlId="resumeFile">
                   <Form.Label>Upload Resume</Form.Label>
-                  <Form.Control type="file" onChange={handleChange} />
+                  <Form.Control
+                    type="file"
+                    accept=".pdf"
+                    name="resumeFile"
+                    onChange={handleFile}
+                  />
                 </Form.Group>
               )}
 
