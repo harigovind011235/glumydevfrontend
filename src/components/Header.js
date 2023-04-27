@@ -18,9 +18,11 @@ function Header() {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/ourcompanies" style={{ color: "black" }}>
+            <LinkContainer to={"/ourcompanies"} style={{ color: "black" }}>
+            <Nav.Link >
               Our Companies
             </Nav.Link>
+            </LinkContainer>
             <Nav.Link href="#pricing" style={{ color: "black" }}>
               AboutUs
             </Nav.Link>
@@ -34,6 +36,11 @@ function Header() {
             <LinkContainer to={"/register"}>
               <Nav.Link>
                 <Button variant="light">Register</Button>
+              </Nav.Link>
+            </LinkContainer>
+            <LinkContainer to={"/jobcreation"}>
+              <Nav.Link>
+                <Button variant="light">jobcreation</Button>
               </Nav.Link>
             </LinkContainer>
           </Nav>

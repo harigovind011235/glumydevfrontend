@@ -1,6 +1,7 @@
 import React, { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 import Loader from "./components/Loader";
+import JobCreation from "./screens/JobCreation";
 
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const RegisterScreen = lazy(() => import("./screens/RegisterScreen"));
@@ -37,6 +38,14 @@ const routes = createBrowserRouter([
     element: (
       <Suspense fallback={<Loader></Loader>}>
         <OurCompanyScreen/>
+      </Suspense>
+    ),
+  },
+  {
+    path: "/jobcreation",
+    element: (
+      <Suspense fallback={<Loader></Loader>}>
+        <JobCreation/>
       </Suspense>
     ),
   },
