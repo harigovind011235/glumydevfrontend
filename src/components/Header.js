@@ -23,7 +23,7 @@ function Header() {
               Our Companies
             </Nav.Link>
             </LinkContainer>
-            <Nav.Link href="#pricing" style={{ color: "black" }}>
+            <Nav.Link href="/aboutus" style={{ color: "black" }}>
               AboutUs
             </Nav.Link>
           </Nav>
