@@ -17,7 +17,7 @@ const Aboutus = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setFadeIn(true);
-    }, 50);
+    }, 20);
     return () => clearTimeout(timer);
   }, []);
 
@@ -44,7 +44,7 @@ const Aboutus = () => {
           
           <Col sm={6} className="about-us-content xl={6} lg={12} md={12} sm={12}">
             <div>
-            <img src={abtimg1} alt="Generic Image" className="abtimg" id="about-us-image"/>
+            <img src={abtimg1} alt="Aboutus-img" className="abtimg" id="about-us-image"/>
             </div>
           </Col>
         </Row>
@@ -55,7 +55,7 @@ const Aboutus = () => {
         <Row>
         <Col sm={6} className="about-us-content xl={6} lg={12} md={12} sm={12}">
           <div>
-            <img src={abtimg2} alt="Generic Image" className="abtimg" id="about-us-image"/>
+            <img src={abtimg2} alt="ourmission-img" className="abtimg" id="about-us-image"/>
             </div>
             <br></br>
           </Col>
@@ -87,7 +87,7 @@ const Aboutus = () => {
           </Col>
           <Col sm={6} className="about-us-content xl={6} lg={12} md={12} sm={12}">
           <div>
-            <img src={abtimg3} alt="Generic Image" className="abtimg" id="about-us-image"/>
+            <img src={abtimg3} alt="aboutus-img" className="abtimg" id="about-us-image"/>
             </div>
           </Col>
         </Row>
@@ -98,7 +98,7 @@ const Aboutus = () => {
         <Row>
         <Col sm={6} className="about-us-content xl={6} lg={12} md={12} sm={12}">
         <div>
-            <img src={abtimg4} alt="Generic Image" className="abtimg" id="about-us-image"/>
+            <img src={abtimg4} alt="Employer-img" className="abtimg" id="about-us-image"/>
             </div>
             <br></br>
 
@@ -129,7 +129,7 @@ const Aboutus = () => {
           </Col>
           <Col sm={6} className="about-us-content xl={6} lg={12} md={12} sm={12}">
           <div>
-            <img src={abtimg5} alt="Generic Image" className="abtimg" id="about-us-image"/>
+            <img src={abtimg5} alt="aboutus-img3" className="abtimg" id="about-us-image"/>
             </div>
           </Col>
         </Row>
