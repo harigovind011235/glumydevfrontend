@@ -49,8 +49,7 @@ const Aboutus = () => {
           </Col>
         </Row>
             <br></br>
-            <br></br>
-
+git 
 
         <Row>
         <Col sm={6} className="about-us-content xl={6} lg={12} md={12} sm={12}">
@@ -123,7 +122,10 @@ const Aboutus = () => {
           <h3 id="Title" className={classnames({"fade-in": fadeIn})}>Our Commitment to Excellence</h3>
 
             <p id="content" className={classnames({"fade-in": fadeIn})}>
-            At ICT Academy Of Kerala Alumni Job Portal, we are committed to providing the best job search experience for our alumni and employers. We understand the importance of finding the right job or candidate, and we are dedicated to making that process as smooth and effortless as possible. Our website is designed to be user-friendly and intuitive, ensuring that both employers and alumni can easily navigate and find what they are looking for. Thank you for choosing ICT Academi Of Kerala Alumni Job Portal. We look forward to being a part of your career journey.
+            At ICTAK Alumni Job Portal, we are committed to providing the best job search experience for our alumni and employers. We understand the importance of finding the right job or candidate, and we are dedicated to making that process as smooth and effortless as possible. Our website is designed to be user-friendly and intuitive, ensuring that both employers and alumni can easily navigate and find what they are looking for.
+            <br></br>
+            <br></br>
+            Thank you for choosing ICTAK Alumni Job Portal. We look forward to being a part of your career journey.
           </p>
           </div>
           </Col>
