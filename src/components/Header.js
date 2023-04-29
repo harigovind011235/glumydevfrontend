@@ -32,7 +32,7 @@ function Header() {
             <LinkContainer to={"/ourcompanies"} style={{ color: "black" }}>
               <Nav.Link>Our Companies</Nav.Link>
             </LinkContainer>
-            <Nav.Link href="#pricing" style={{ color: "black" }}>
+            <Nav.Link href="/aboutus" style={{ color: "black" }}>
               AboutUs
             </Nav.Link>
           </Nav>
