@@ -7,6 +7,8 @@ const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const RegisterScreen = lazy(() => import("./screens/RegisterScreen"));
 const LoginScreen = lazy(() => import("./screens/LoginScreen"));
 const OurCompanyScreen = lazy(() => import("./screens/OurCompanyScreen"));
+const Aboutusscreen = lazy(() => import("./screens/Aboutus"));
+const AdminJobsDashboard = lazy(() => import("./screens/AdminJobDashboard"));
 
 const routes = createBrowserRouter([
   {
@@ -50,6 +52,24 @@ const routes = createBrowserRouter([
     ),
   },
   
+  {
+    path: "/aboutus",
+    element: (
+      <Suspense fallback={<Loader></Loader>}>
+        <Aboutusscreen/>
+      </Suspense>
+    ),
+  },
+
+  {
+    path: "/adminjobsdashboard",
+    element: (
+      <Suspense fallback={<Loader></Loader>}>
+        <AdminJobsDashboard/>
+      </Suspense>
+    ),
+  },
+
 ]);
 
 export default routes;
