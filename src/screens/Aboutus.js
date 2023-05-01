@@ -48,7 +48,6 @@ const Aboutus = () => {
             </div>
           </Col>
         </Row>
-            <br></br>
 
         <Row>
         <Col sm={6} className="about-us-content xl={6} lg={12} md={12} sm={12}">
