@@ -1,0 +1,21 @@
+/* .popup {
+    transform: scale(1.1);
+    transition: transform 0.25s ease-in-out;
+  
+  } */
+  
+  .jobCard {
+    padding: 8%;
+  }
+
+  .job-card {
+    transition: all 0.3s ease;
+    transform: scale(1);
+  }
+  
+  .job-card.hovered {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    /* border: 1px solid rgba(158, 113, 113, 0.767); */
+    border-radius: 20px 20px 20px 20px;
+  }

@@ -3,6 +3,7 @@ import JobCard from "../components/JobCard";
 import Container from 'react-bootstrap/Container';
 import { Row } from "react-bootstrap";
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 const JobScreen = () => {
   const [jobs, setJobs] = useState([]);
@@ -28,6 +29,9 @@ const JobScreen = () => {
                 salary={job.salary}
                 location={job.location}
                 highestQualification={job.highestQualification}
+                postedBy={job.postedBy}
+                createdAt={job.createdAt}
+                updatedAt={job.updatedAt}
               />
             ))
           ) : (
@@ -35,6 +39,8 @@ const JobScreen = () => {
           )}
         </Row>
       </Container>
+
+      <Footer/>
     </>
   );
 };
