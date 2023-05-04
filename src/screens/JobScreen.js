@@ -18,6 +18,11 @@ const JobScreen = () => {
     <>
       <Header />
       <Container>
+        <div>
+          <br></br>
+          <h2 className="text-center">All Available Jobs Postings</h2>
+          <br></br>
+        </div>
         <Row>
           {Array.isArray(jobs) && jobs.length > 0 ? (
             jobs.map((job) => (

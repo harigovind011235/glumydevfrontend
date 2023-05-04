@@ -9,28 +9,30 @@ function JobCard(props) {
   const [hovered, setHovered] = useState(false);
 
   return(
-    <Col xs={12} md={6} lg={6} xl={4}>
+    <Col xs={12} md={6} lg={6} xl={4} xxl={3}>
       <div style={{ padding: '10px' }}>
         <Card
+        style={{ border: '3px dashed rgba(44, 41, 41, 0.400'}}
           // style={{ width: '100%' }}
           className={hovered ? 'job-card hovered' : 'job-card'}
           onMouseEnter={() => setHovered(true)}
           onMouseLeave={() => setHovered(false)}
         >
+          
           <Card.Body className='jobCard'>
-            <Card.Title>{jobTitle}</Card.Title>
+            <Card.Title className='text-primary text-center'>{jobTitle}</Card.Title>
             <br></br>
-            <Card.Text className="mb-2 text-muted">Company: {companyName}</Card.Text>
+            <Card.Text className="mb-2">Company: {companyName}</Card.Text>
 
-            <Card.Text className="mb-2 text-muted">Job Category: {highestQualification}</Card.Text>
-            <Card.Text className="mb-2 text-muted">Job Location: {location}</Card.Text>
+            <Card.Text className="mb-2">Qualification: {highestQualification}</Card.Text>
+            <Card.Text className="mb-2">Job Location: {location}</Card.Text>
+            <Card.Text>Salary: {salary}/- INR</Card.Text>
             <Card.Text>Description:<br></br>{jobDescription}</Card.Text>
-            <Card.Text>Salary: {salary}</Card.Text>
-            <Card.Text>Posted By: {postedBy}</Card.Text>
-            <Card.Text>Job listing created at: {createdAt}</Card.Text>
-            <Card.Text>Job listing updated at: {updatedAt}</Card.Text>
+            <Card.Text className="smalltext text-muted">Job listing created at: {createdAt}</Card.Text>
+            <Card.Text className="smalltext text-muted">Job listing updated at: {updatedAt}</Card.Text>
+            <Card.Text className="smalltext text-muted">Posted By: {postedBy}</Card.Text>
 
-            <Button variant="dark" size="sm" block href="#">Apply Now</Button>
+            <Button variant="dark"  block href="#">Apply Now</Button>
           </Card.Body>
         </Card>
       </div>
