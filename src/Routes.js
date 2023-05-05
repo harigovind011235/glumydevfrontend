@@ -8,6 +8,7 @@ const RegisterScreen = lazy(() => import("./screens/RegisterScreen"));
 const LoginScreen = lazy(() => import("./screens/LoginScreen"));
 const OurCompanyScreen = lazy(() => import("./screens/OurCompanyScreen"));
 const AdminJobsDashboard = lazy(() => import("./screens/AdminJobDashboard"));
+const AdminJobCard = lazy(() => import("./screens/AdminJobUpdate"));
 
 const routes = createBrowserRouter([
   {
@@ -55,6 +56,14 @@ const routes = createBrowserRouter([
     element: (
       <Suspense fallback={<Loader></Loader>}>
         <AdminJobsDashboard/>
+      </Suspense>
+    ),
+  },
+  {
+    path: "/adminjobupdate",
+    element: (
+      <Suspense fallback={<Loader></Loader>}>
+        <AdminJobCard/>
       </Suspense>
     ),
   },

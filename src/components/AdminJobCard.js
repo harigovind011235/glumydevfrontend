@@ -2,20 +2,26 @@ import React, { useState } from 'react';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Col from 'react-bootstrap/Col';
-import { Row } from 'react-bootstrap';
+import { Row,Modal } from 'react-bootstrap';
 import '../components/AdminJobcard.css';
+import { useNavigate } from 'react-router-dom';
 
 function AdminJobCard(props) {
-  const { jobTitle, companyName, jobDescription, salary, location, highestQualification , postedBy, createdAt, updatedAt, jobId, onDelete, deleteJob } = props;
+  const { jobTitle, companyName, jobDescription, salary, location, highestQualification , postedBy, createdAt, updatedAt, jobId, onDelete, deleteJob, onUpdate } = props;
   const [hovered, setHovered] = useState(false);
 
-  const handleDelete = (id) => {
-    const confirmDelete = window.confirm("Are you sure you want to delete this job?");
-  
-    if (confirmDelete) {
-      deleteJob(id);
-    }
-  };
+  const [showModal, setShowModal] = useState(false);
+
+  const navigate = useNavigate();
+
+
+  const handleDelete = () => {
+    onDelete(jobId);
+    setShowModal(false);
+  }
+const handleUpdate = () => {
+  navigate(`/updatejob/${jobId}`);
+}
 
   return(
     <Col xs={12} md={6} lg={6} xl={4} xxl={3}>
@@ -43,24 +49,33 @@ function AdminJobCard(props) {
 
             {/* <Button variant="dark"  block href="#">Apply Now</Button> */}
             <Row>
-<Col xs={6} sm={6}>
-  <Button variant="dark" size="sm" block href="#">Update</Button>
-</Col>
-<Col xs={6} sm={6}>
-  <Button variant="outline-danger" size="sm" block onClick={handleDelete}>Delete</Button>
-</Col>
-</Row>
-
+            <Col xs={6} sm={6}>
+          {/* <Button variant="dark" size="sm" block href="#">Update</Button> */}
+          <Button variant="dark" size="sm" block onClick={handleUpdate}>
+                  Update
+                </Button>
+            </Col>
+              <Col xs={6} sm={6}>
+                <Button variant="outline-danger" size="sm" block onClick={() => setShowModal(true)}>Delete</Button>
+              </Col>
+            </Row>
           </Card.Body>
         </Card>
       </div>
+
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Confirm Deletion</Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='smalltext'>Are you sure you want to delete this job listing?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" size='sm' onClick={() => setShowModal(false)}>Cancel</Button>
+          <Button variant="danger" size='sm' onClick={handleDelete}>Delete</Button>
+        </Modal.Footer>
+      </Modal>
+
     </Col>
   )
 }
 
 export default AdminJobCard;
-
-
-
-
-
