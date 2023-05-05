@@ -1,39 +1,66 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Row } from 'react-bootstrap';
+import '../components/AdminJobcard.css';
 
-function AdminJobCard() {
-    return(
-        <>
-    <Col xs={12} md={6} lg={4} xl={3}>
-         <div style={{ padding: '10px' }}>
-        <Card style={{ width: '100%' }}>
-      <Card.Body>
-        <Card.Title>Job Name</Card.Title>
-        <br></br>
-        <Card.Text className="mb-2 text-muted">Job Category :</Card.Text>
-        <Card.Text className="mb-2 text-muted">Job Location :</Card.Text>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Row>
-            <Col xs={6} sm={6}>
-              <Button variant="dark" size="sm" block href="#">Update</Button>
-            </Col>
-            <Col xs={6} sm={6}>
-              <Button variant="outline-danger" size="sm" block href="#">Delete</Button>
-            </Col>
-          </Row>
-      </Card.Body>
-    </Card>
-    </div>
+function AdminJobCard(props) {
+  const { jobTitle, companyName, jobDescription, salary, location, highestQualification , postedBy, createdAt, updatedAt, jobId, onDelete, deleteJob } = props;
+  const [hovered, setHovered] = useState(false);
+
+  const handleDelete = (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this job?");
+  
+    if (confirmDelete) {
+      deleteJob(id);
+    }
+  };
+
+  return(
+    <Col xs={12} md={6} lg={6} xl={4} xxl={3}>
+      <div style={{ padding: '10px' }}>
+        <Card
+        style={{ border: '3px dashed rgba(44, 41, 41, 0.400'}}
+          // style={{ width: '100%' }}
+          className={hovered ? 'job-card hovered' : 'job-card'}
+          onMouseEnter={() => setHovered(true)}
+          onMouseLeave={() => setHovered(false)}
+        >
+          
+          <Card.Body className='jobCard'>
+            <Card.Title className='text-primary text-center'>{jobTitle}</Card.Title>
+            <br></br>
+            <Card.Text className="mb-2">Company: {companyName}</Card.Text>
+
+            <Card.Text className="mb-2">Qualification: {highestQualification}</Card.Text>
+            <Card.Text className="mb-2">Job Location: {location}</Card.Text>
+            <Card.Text>Salary: {salary}/- INR</Card.Text>
+            <Card.Text>Description:<br></br>{jobDescription}</Card.Text>
+            <Card.Text className="smalltext text-muted">Job listing created at: {createdAt}</Card.Text>
+            <Card.Text className="smalltext text-muted">Job listing updated at: {updatedAt}</Card.Text>
+            <Card.Text className="smalltext text-muted">Posted By: {postedBy}</Card.Text>
+
+            {/* <Button variant="dark"  block href="#">Apply Now</Button> */}
+            <Row>
+<Col xs={6} sm={6}>
+  <Button variant="dark" size="sm" block href="#">Update</Button>
+</Col>
+<Col xs={6} sm={6}>
+  <Button variant="outline-danger" size="sm" block onClick={handleDelete}>Delete</Button>
+</Col>
+</Row>
+
+          </Card.Body>
+        </Card>
+      </div>
     </Col>
-
-    </>
-    )
+  )
 }
 
-export default AdminJobCard
+export default AdminJobCard;
+
+
+
+
+

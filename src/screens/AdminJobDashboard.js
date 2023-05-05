@@ -1,31 +1,66 @@
-import React from "react";
-import AdminJobCard from "../components/AdminJobCard";
+import React, { useEffect, useState } from "react";
+import JobCard from "../components/AdminJobCard";
 import Container from 'react-bootstrap/Container';
 import { Row } from "react-bootstrap";
-// import Col from 'react-bootstrap/Col';
-import Header from '../components/Header'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
+const JobScreen = () => {
+  const [jobs, setJobs] = useState([]);
 
-const AdminJobsDashboard = () => {
-    return(
-        <>
-        <Header/>
-        <Container>
-            <br></br>
-            <h2 className="text-center">Admin Dashboard: Manage Job Postings</h2>
-            <br></br>
-    <Row>
-        <AdminJobCard/>
-        <AdminJobCard/>
-        <AdminJobCard/>
-        <AdminJobCard/>
-        <AdminJobCard/>
-        <AdminJobCard/>
-        <AdminJobCard/>
-        <AdminJobCard/>
-    </Row>
+  useEffect(() => {
+    fetch("http://localhost:4000/jobs")
+      .then((response) => response.json())
+      .then((data) => setJobs(data.jobs))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const handleDelete = (id) => {
+    fetch(`http://localhost:4000/jobs/${id}`, { method: 'DELETE' })
+      .then((response) => response.json())
+      .then((data) => {
+        // Remove the deleted job from the state
+        setJobs((prevJobs) => prevJobs.filter((job) => job._id !== id));
+        console.log(data.message);
+      })
+      .catch((error) => console.log(error));
+  };
+
+    return (
+    <>
+      <Header />
+      <Container>
+        <div>
+          <br></br>
+          <h2 className="text-center">Admin Dashboard: Manage Job Postings</h2>
+          <br></br>
+        </div>
+        <Row>
+          {Array.isArray(jobs) && jobs.length > 0 ? (
+            jobs.map((job) => (
+              <JobCard
+                key={job._id}
+                jobTitle={job.jobTitle}
+                companyName={job.companyName}
+                jobDescription={job.jobDescription}
+                salary={job.salary}
+                location={job.location}
+                highestQualification={job.highestQualification}
+                postedBy={job.postedBy}
+                createdAt={job.createdAt}
+                updatedAt={job.updatedAt}
+                onDelete={() => handleDelete(job._id)}
+              />
+            ))
+          ) : (
+            <p>No jobs available.</p>
+          )}
+        </Row>
       </Container>
-      </>
-    )
-}
-export default AdminJobsDashboard
+
+      <Footer/>
+    </>
+  );
+};
+
+export default JobScreen;
