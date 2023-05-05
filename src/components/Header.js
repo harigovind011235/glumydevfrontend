@@ -32,9 +32,13 @@ function Header() {
             <LinkContainer to={"/ourcompanies"} style={{ color: "black" }}>
               <Nav.Link>Our Companies</Nav.Link>
             </LinkContainer>
-            <Nav.Link href="/aboutus" style={{ color: "black" }}>
-              AboutUs
-            </Nav.Link>
+
+            <LinkContainer to={"/aboutus"}>
+              <Nav.Link>
+                <Button variant="light">About Us</Button>
+              </Nav.Link>
+            </LinkContainer>
+
           </Nav>
           {userInfo &&
           userInfo.status === "success" &&
