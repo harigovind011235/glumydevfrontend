@@ -8,6 +8,8 @@ const RegisterScreen = lazy(() => import("./screens/RegisterScreen"));
 const LoginScreen = lazy(() => import("./screens/LoginScreen"));
 const OurCompanyScreen = lazy(() => import("./screens/OurCompanyScreen"));
 const Aboutusscreen = lazy(() => import("./screens/Aboutus"));
+const Alumnijobscreen = lazy(() => import("./screens/AlumniJobScreen"));
+
 
 const routes = createBrowserRouter([
   {
@@ -59,6 +61,16 @@ const routes = createBrowserRouter([
       </Suspense>
     ),
   },
+
+  {
+    path: "/jobpostings",
+    element: (
+      <Suspense fallback={<Loader></Loader>}>
+        <Alumnijobscreen/>
+      </Suspense>
+    ),
+  },
+
 
 ]);
 
