@@ -5,15 +5,19 @@ import Button from "react-bootstrap/Button";
 import Image from "react-bootstrap/Image";
 import ictlogo from "../assets/images/ictlogo.jpg";
 import { LinkContainer } from "react-router-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 function Header() {
   const userStrInfo = localStorage.getItem("userInfo");
   const userInfo = JSON.parse(userStrInfo);
+  const navigate = useNavigate();
 
   const logOutHandler = () => {
     localStorage.removeItem("userInfo");
+    navigate('/');
     window.location.reload();
-    console.log("LoggedOut");
+
+    
   };
 
   return (
