@@ -25,7 +25,7 @@ const JobScreen = () => {
         setJobs(formattedJobs);
       })
       .catch((error) => console.log(error));
-  }, []);
+  }, [jobs]);
   
 
   const handleDelete = (id) => {

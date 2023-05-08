@@ -2,23 +2,24 @@ import React, { useState } from 'react';
 import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
 
 function JobUpdateModal(props) {
-  const { show, onHide, onUpdate, upJobId, onHide2  } = props;
-  const [jobTitle, setJobTitle] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [jobDescription, setJobDescription] = useState('');
-  const [salary, setSalary] = useState('');
-  const [location, setLocation] = useState('');
-  const [highestQualification, setHighestQualification] = useState('');
+  const { show, onHide, onUpdate, upJobId, jobTitle, companyName, jobDescription, salary, location, highestQualification } = props;
+  const [jobTitle2, setJobTitle2] = useState(jobTitle);
+  const [companyName2, setCompanyName2] = useState(companyName);
+  const [jobDescription2, setJobDescription2] = useState(jobDescription);
+  const [salary2, setSalary2] = useState(salary);
+  const [location2, setLocation2] = useState(location);
+  const [highestQualification2, setHighestQualification2] = useState(highestQualification);
+  
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const jobData = {
-      jobTitle,
-      companyName,
-      jobDescription,
-      salary,
-      location,
-      highestQualification,
+      jobTitle: jobTitle2,
+      companyName: companyName2,
+      jobDescription: jobDescription2,
+      salary: salary2,
+      location: location2,
+      highestQualification:highestQualification2,
       updatedAt: new Date().toISOString()
     };
 
@@ -56,25 +57,25 @@ function JobUpdateModal(props) {
         <Col md={6}>
           <Form.Group className='p-2'>
             <Form.Label>Job Title</Form.Label>
-            <Form.Control type="text" value={jobTitle} onChange={(e) => setJobTitle(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="text" value={jobTitle2} onChange={(e) => setJobTitle2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
         </Col>
         <Col md={6}>
           <Form.Group className='p-2'>
             <Form.Label>Company Name</Form.Label>
-            <Form.Control type="text" value={companyName} onChange={(e) => setCompanyName(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="text" value={companyName2} onChange={(e) => setCompanyName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
         </Col>
       </Row>
           <Form.Group className='p-2'>
             <Form.Label>Job Description</Form.Label>
-            <Form.Control as="textarea" value={jobDescription} onChange={(e) => setJobDescription(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control as="textarea" value={jobDescription2} onChange={(e) => setJobDescription2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
           <Row>
         <Col md={6}>
           <Form.Group className='p-2'>
             <Form.Label>Salary</Form.Label>
-            <Form.Control type="number" value={salary} onChange={(e) => setSalary(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="number" value={salary2} onChange={(e) => setSalary2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
           </Col>
           <Col md={6}>
@@ -82,8 +83,8 @@ function JobUpdateModal(props) {
           <Form.Label>Highest Qualification</Form.Label>
 
               <select name=""  className='form-select'
-                  value={highestQualification}
-                  onChange={(e)=>setHighestQualification(e.target.value)} style={{ border: '2px solid #ced4da' }}
+                  value={highestQualification2}
+                  onChange={(e)=>setHighestQualification2(e.target.value)} style={{ border: '2px solid #ced4da' }}
                 >
               <option selected disabled hidden > HIGHEST QUALIFICATION</option>
               <option >Select One</option>
@@ -100,12 +101,12 @@ function JobUpdateModal(props) {
           </Row>
           <Form.Group className='p-2'>
             <Form.Label>Location</Form.Label>
-            <Form.Control type="text" value={location} onChange={(e) => setLocation(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="text" value={location2} onChange={(e) => setLocation2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
 
           <Modal.Footer>
 
-          <Button type="submit" variant="danger" onClick={onHide2}>Update Job</Button>
+          <Button type="submit" variant="danger" onClick={onHide}>Update Job</Button>
           <Button type="submit" onClick={onHide}>Cancel</Button>
           </Modal.Footer>
 
