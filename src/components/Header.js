@@ -49,7 +49,7 @@ function Header() {
                   <Button variant="light">Add Jobs</Button>
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to={"/jobcreation"}>
+              <LinkContainer to={"/viewJob"}>
                 <Nav.Link>
                   <Button variant="light">Current Jobs</Button>
                 </Nav.Link>
