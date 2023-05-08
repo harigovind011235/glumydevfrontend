@@ -6,7 +6,7 @@ import JobCreation from "./screens/JobCreation";
 const HomeScreen = lazy(() => import("./screens/HomeScreen"));
 const RegisterScreen = lazy(() => import("./screens/RegisterScreen"));
 const LoginScreen = lazy(() => import("./screens/LoginScreen"));
-const OurCompanyScreen = lazy(() => import("./screens/OurCompanygitScreen"));
+const OurCompanyScreen = lazy(() => import("./screens/OurCompanyScreen"));
 const Aboutusscreen = lazy(() => import("./screens/Aboutus"));
 const Alumnijobscreen = lazy(() => import("./screens/AlumniJobScreen"));
 const AdminJobscreen = lazy(() => import("./screens/AdminJobscreen"));
