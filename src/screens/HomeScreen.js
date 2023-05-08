@@ -4,6 +4,7 @@ import JobSearch from "../components/JobSearch";
 import HomeCard from "../components/HomeCard";
 import Footer from '../components/Footer';
 import { Col, Container, Row } from "react-bootstrap";
+import CompaniesList from "../components/CompaniesList";
 
 function HomeScreen() {
   return (
@@ -16,16 +17,7 @@ function HomeScreen() {
       <Container>
         <Row style={{ marginTop: "40px" }}>
           <Col className="lg-4">
-            <HomeCard />
-          </Col>
-          <Col className="lg-3">
-            <HomeCard />
-          </Col>
-          <Col className="lg-3">
-            <HomeCard />
-          </Col>
-          <Col className="lg-3">
-            <HomeCard />
+            <CompaniesList />
           </Col>
         </Row>
       </Container>
@@ -37,19 +29,10 @@ function HomeScreen() {
           <Col className="lg-4">
             <HomeCard />
           </Col>
-          <Col className="lg-3">
-            <HomeCard />
-          </Col>
-          <Col className="lg-3">
-            <HomeCard />
-          </Col>
-          <Col className="lg-3">
-            <HomeCard />
-          </Col>
         </Row>
       </Container>
       <Container style={{ marginTop: "60px" }}>
-        <Footer/>
+        <Footer />
       </Container>
     </>
   );
