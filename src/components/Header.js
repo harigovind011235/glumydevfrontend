@@ -6,17 +6,15 @@ import Image from "react-bootstrap/Image";
 import ictlogo from "../assets/images/ictlogo.jpg";
 import { LinkContainer } from "react-router-bootstrap";
 
-
 function Header() {
-
   const userStrInfo = localStorage.getItem("userInfo");
   const userInfo = JSON.parse(userStrInfo);
 
   const logOutHandler = () => {
     localStorage.removeItem("userInfo");
-    window.location.reload()
-    console.log("LoggedOut")
-  }
+    window.location.reload();
+    console.log("LoggedOut");
+  };
 
   return (
     <Navbar collapseOnSelect expand="lg">
@@ -30,7 +28,7 @@ function Header() {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <LinkContainer to={"/ourcompanies"} style={{ color: "black" }}>
-              <Nav.Link>Our Companies</Nav.Link>
+              <Nav.Link><Button variant="light">Our Companies</Button></Nav.Link>
             </LinkContainer>
 
             <LinkContainer to={"/aboutus"}>
@@ -38,7 +36,6 @@ function Header() {
                 <Button variant="light">About Us</Button>
               </Nav.Link>
             </LinkContainer>
-
           </Nav>
           {userInfo &&
           userInfo.status === "success" &&
@@ -56,7 +53,9 @@ function Header() {
               </LinkContainer>
               <LinkContainer to={"/"}>
                 <Nav.Link>
-                  <Button onClick={logOutHandler} variant="light">Logout</Button>
+                  <Button onClick={logOutHandler} variant="light">
+                    Logout
+                  </Button>
                 </Nav.Link>
               </LinkContainer>
             </Nav>
@@ -70,7 +69,7 @@ function Header() {
                   <Button variant="light">Add Jobs</Button>
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to={"/jobcreation"}>
+              <LinkContainer to={"/adminjobscreen"}>
                 <Nav.Link>
                   <Button variant="light">Current Jobs</Button>
                 </Nav.Link>
@@ -82,7 +81,9 @@ function Header() {
               </LinkContainer>
               <LinkContainer to={"/"}>
                 <Nav.Link>
-                  <Button onClick={logOutHandler} variant="light">Logout</Button>
+                  <Button onClick={logOutHandler} variant="light">
+                    Logout
+                  </Button>
                 </Nav.Link>
               </LinkContainer>
             </Nav>
@@ -91,7 +92,7 @@ function Header() {
           userInfo.status === "success" &&
           userInfo.userType === "Alumni" ? (
             <Nav>
-              <LinkContainer to={"/jobcreation"}>
+              <LinkContainer to={"/jobpostings"}>
                 <Nav.Link>
                   <Button variant="light">View Jobs</Button>
                 </Nav.Link>
@@ -103,7 +104,9 @@ function Header() {
               </LinkContainer>
               <LinkContainer to={"/"}>
                 <Nav.Link>
-                  <Button onClick={logOutHandler} variant="light">Logout</Button>
+                  <Button onClick={logOutHandler} variant="light">
+                    Logout
+                  </Button>
                 </Nav.Link>
               </LinkContainer>
             </Nav>
