@@ -127,13 +127,6 @@ const headers = {
                 />
               </Form.Group>
 
-              <Form.Group className='p-2'>
-                <Form.Control
-                  type="text"
-                  placeholder="CONTACT INFO"
-                />
-              </Form.Group>
-
               <div
                 className="d-flex align-items-center justify-content-center"
                 style={{ height: "14vh" }}
