@@ -37,35 +37,46 @@ export default function App() {
             <MDBCol md='3' lg='4' xl='3' className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>
                 <MDBIcon color='secondary' icon='gem' className='me-3' />
-                HireDev
+                Services
               </h6>
-              <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit
-                amet, consectetur adipisicing elit.
+              <p style={{textAlign:"justify"}}>
+                We provide hiring of leading developers,engineers,programmers,
+                coders architects,and consultants.
+                Our experienced team is ready to help you launch
+                a customer-oriented product.
+                
               </p>
             </MDBCol>
 
             <MDBCol md='2' lg='2' xl='2' className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
+              <h6 className='text-uppercase fw-bold mb-4'>Hire developers</h6>
               <p>
                 <a href='#!' className='text-reset'>
-                  Angular
+                  Angular Js developer
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  React
+                  React Js developer
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Vue
+                  Vue Js developer
                 </a>
               </p>
               <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
+              <a href='#!' className='text-reset'>
+                  java developer
                 </a>
+              </p>
+              <p>
+              <a href='#!' className='text-reset'>
+                  Android developer
+                </a>
+              </p>
+              <p>
+             
               </p>
             </MDBCol>
 
@@ -78,17 +89,18 @@ export default function App() {
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Settings
+                  About Us
                 </a>
               </p>
               <p>
                 <a href='#!' className='text-reset'>
-                  Orders
+                  E-book;How to get a job in 2023
                 </a>
               </p>
+            
               <p>
                 <a href='#!' className='text-reset'>
-                  Help
+                  Help Center
                 </a>
               </p>
             </MDBCol>
