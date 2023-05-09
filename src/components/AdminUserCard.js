@@ -8,7 +8,7 @@ import UserUpdateModal from '../components/userUpdatePopup'
 
 
 function AdminJobCard(props) {
-  const { username, firstName, lastName, email, phone, highestQualification , courseStudied, batchDetails, placementStatus, companyName, userType, created_date, jobId, onDelete, upUserId } = props;
+  const { username, firstName, lastName, email, phone, highestQualification , courseStudied, batchDetails, placementStatus, companyName, userType, created_date, version, jobId, onDelete, upUserId } = props;
   const [hovered, setHovered] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
@@ -44,15 +44,15 @@ function AdminJobCard(props) {
 
             <Card.Text className="mb-2">Last Name: {lastName}</Card.Text>
             <Card.Text className="mb-2">Email: {email}</Card.Text>
-            <Card.Text className="mb-2">Job Location: {phone}</Card.Text>
-            <Card.Text className="mb-2">Job Location: {highestQualification}</Card.Text>
-            <Card.Text className="mb-2">Job Location: {courseStudied}</Card.Text>
-            <Card.Text className="mb-2">Job Location: {batchDetails}</Card.Text>
-            <Card.Text className="mb-2">Job Location: {placementStatus}</Card.Text>
-            <Card.Text className="mb-2">Job Location: {courseStudied}</Card.Text>
+            <Card.Text className="mb-2">Phone no: {phone}</Card.Text>
+            <Card.Text className="mb-2">Highest Qualification: {highestQualification}</Card.Text>
+            <Card.Text className="mb-2">Course Studied: {courseStudied}</Card.Text>
+            <Card.Text className="mb-2">Batch Details Location: {batchDetails}</Card.Text>
+            <Card.Text className="mb-2">Placement Status: {placementStatus}</Card.Text>
+            <Card.Text className="mb-2">Course Studied: {courseStudied}</Card.Text>
 
-            <Card.Text className="mb-2">Job Location: {companyName}</Card.Text>
-            <Card.Text className="mb-2">Job Location: {userType}</Card.Text>
+            <Card.Text className="mb-2">Company Name: {companyName}</Card.Text>
+            <Card.Text className="mb-2">User Name: {userType}</Card.Text>
 
             <Card.Text className="smalltext text-muted">User Profile created at: {created_date}</Card.Text>
 
@@ -102,6 +102,8 @@ batchDetails = {batchDetails}
 placementStatus = {placementStatus}
 companyName = {companyName}
 userType = {userType}
+created_date = {created_date}
+version = {version}
 
 />
     </Col>

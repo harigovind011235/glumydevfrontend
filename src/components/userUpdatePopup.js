@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import { version } from 'react';
 import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
 
 function JobUpdateModal(props) {
-  const { show, onHide, onUpdate, upUserId, username, firstName, lastName, email, phone, highestQualification, courseStudied, batchDetails, placementStatus, companyName, userType } = props;
+  const { show, onHide, onUpdate, upUserId, username, firstName, lastName, email, phone, highestQualification, courseStudied, batchDetails, placementStatus, companyName, userType, created_date } = props;
   const [username2, setUsernname2] = useState(username);
-  const [firstName2, setFirstName2] = useState(companyName);
+  const [firstName2, setFirstName2] = useState(firstName);
   const [lastName2, setLastName2] = useState(lastName);
   const [email2, setEmail2] = useState(email);
   const [phone2, setPhone2] = useState(phone);
@@ -14,11 +15,16 @@ function JobUpdateModal(props) {
   const [placementStatus2, setPlacementStatus2] = useState(placementStatus);
   const [companyName2, setCompanyName2] = useState(companyName);
   const [userType2, setUserType2] = useState(userType);
+//   const [created_date2, setCreated_date2] = useState(created_date);
+//   const [version2, setVersion2] = useState(version);
+
+
   
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const userData = {
+      _id: upUserId,
       username: username2,
       firstName: firstName2,
       lastName: lastName2,
@@ -30,10 +36,11 @@ function JobUpdateModal(props) {
       placementStatus: placementStatus2,
       companyName: companyName2,
       userType: userType2,
-      created_date: new Date().toISOString()
+      created_date: created_date,
+      version: version
     };
 
-    fetch(`http://localhost:4000/user/${upUserId}`, {
+    fetch(`http://localhost:4000/user`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
@@ -93,25 +100,25 @@ function JobUpdateModal(props) {
         <Col md={6}>
           <Form.Group className='p-2'>
             <Form.Label>Fristname</Form.Label>
-            <Form.Control type="text" value={firstName} onChange={(e) => setFirstName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="text" value={firstName2} onChange={(e) => setFirstName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
         </Col>
         <Col md={6}>
           <Form.Group className='p-2'>
             <Form.Label>Lastname</Form.Label>
-            <Form.Control type="text" value={lastName} onChange={(e) => setLastName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="text" value={lastName2} onChange={(e) => setLastName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
         </Col>
       </Row>
           <Form.Group className='p-2'>
             <Form.Label>Email</Form.Label>
-            <Form.Control type='email' value={email} onChange={(e) => setEmail2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type='email' value={email2} onChange={(e) => setEmail2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
           <Row>
         <Col md={6}>
           <Form.Group className='p-2'>
             <Form.Label>Phone No:</Form.Label>
-            <Form.Control type="number" value={phone} onChange={(e) => setPhone2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="number" value={phone2} onChange={(e) => setPhone2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
           </Col>
           <Col md={6}>

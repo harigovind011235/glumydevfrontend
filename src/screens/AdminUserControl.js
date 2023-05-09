@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, version } from "react";
 import UserCard from "../components/AdminUserCard";
 import Container from 'react-bootstrap/Container';
 import { Row } from "react-bootstrap";
@@ -13,16 +13,7 @@ const UserScreen = () => {
     const fetchData = () => {
       fetch("http://localhost:4000/user")
         .then((response) => response.json())
-        .then((data) => {
-          const formattedUsers = data.map((user) => {
-            const created_date = new Date(user.created_date).toLocaleString("en-US", { timeZone: "Asia/Kolkata" }) + " IST";
-            return {
-              ...user,
-              created_date,
-            };
-          });
-          setUsers(formattedUsers);
-        })
+        .then((data) => setUsers(data))
         .catch((error) => console.log(error));
     };
   
@@ -73,6 +64,7 @@ const UserScreen = () => {
                 companyName={user.companyName}
                 userType={user.userType}
                 created_date={user.created_date}
+                __v={version}
                 onDelete={() => handleDelete(user._id)}
                 upUserId={user._id}
 
