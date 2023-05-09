@@ -3,27 +3,34 @@ import { Modal, Button, Form, Col, Row } from 'react-bootstrap';
 
 function JobUpdateModal(props) {
   const { show, onHide, onUpdate, upUserId, username, firstName, lastName, email, phone, highestQualification, courseStudied, batchDetails, placementStatus, companyName, userType } = props;
-  const [username2, usernname2] = useState(userName);
-  const [firstName2, firstName2] = useState(companyName);
-  const [lastName2, lastName2] = useState(location);
-  const [email2, email2] = useState(email);
-  const [phone2, phone2] = useState(salary);
+  const [username2, setUsernname2] = useState(username);
+  const [firstName2, setFirstName2] = useState(companyName);
+  const [lastName2, setLastName2] = useState(lastName);
+  const [email2, setEmail2] = useState(email);
+  const [phone2, setPhone2] = useState(phone);
   const [highestQualification2, setHighestQualification2] = useState(highestQualification);
-  const [courseStudied2, courseStudied2] = useState(location);
-  const [batchDetails2, batchDetails2] = useState(location);
-
+  const [courseStudied2, setCourseStudied2] = useState(courseStudied);
+  const [batchDetails2, setBatchDetails2] = useState(batchDetails);
+  const [placementStatus2, setPlacementStatus2] = useState(placementStatus);
+  const [companyName2, setCompanyName2] = useState(companyName);
+  const [userType2, setUserType2] = useState(userType);
   
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const jobData = {
-      jobTitle: jobTitle2,
-      companyName: companyName2,
-      jobDescription: jobDescription2,
-      salary: salary2,
-      location: location2,
+    const userData = {
+      username: username2,
+      firstName: firstName2,
+      lastName: lastName2,
+      email: email2,
+      phone: phone2,
       highestQualification:highestQualification2,
-      updatedAt: new Date().toISOString()
+      courseStudied: courseStudied2,
+      batchDetails: batchDetails2,
+      placementStatus: placementStatus2,
+      companyName: companyName2,
+      userType: userType2,
+      created_date: new Date().toISOString()
     };
 
     fetch(`http://localhost:4000/user/${upUserId}`, {
@@ -31,7 +38,7 @@ function JobUpdateModal(props) {
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(jobData)
+      body: JSON.stringify(userData)
     })
     .then(response => {
       if (!response.ok) {
@@ -60,34 +67,51 @@ function JobUpdateModal(props) {
             <Col md={6}>
           <Form.Group className='p-2'>
             <Form.Label>User Name</Form.Label>
-            <Form.Control type="text" value={username} onChange={(e) => setJobTitle2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="text" value={username} onChange={(e) => setUsernname2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
         </Col>
+
+        <Col md={6}>
+          <Form.Group className='p-2'>
+          <Form.Label>User Type</Form.Label>
+
+              <select name=""  className='form-select'
+                  value={userType2}
+                  onChange={(e)=>setUserType2(e.target.value)} style={{ border: '2px solid #ced4da' }}
+                >
+              <option selected disabled hidden > User Type</option>
+              <option >Select One</option>
+                <option >Alumni</option>
+                <option >Employer</option>
+              </select>
+              </Form.Group>
+          </Col>
+
 
             </Row>
         <Row>
         <Col md={6}>
           <Form.Group className='p-2'>
-            <Form.Label>Job Title</Form.Label>
-            <Form.Control type="text" value={firstName} onChange={(e) => setJobTitle2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Label>Fristname</Form.Label>
+            <Form.Control type="text" value={firstName} onChange={(e) => setFirstName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
         </Col>
         <Col md={6}>
           <Form.Group className='p-2'>
-            <Form.Label>Company Name</Form.Label>
-            <Form.Control type="text" value={lastName} onChange={(e) => setCompanyName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Label>Lastname</Form.Label>
+            <Form.Control type="text" value={lastName} onChange={(e) => setLastName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
         </Col>
       </Row>
           <Form.Group className='p-2'>
-            <Form.Label>Job Description</Form.Label>
-            <Form.Control as="textarea" value={email} onChange={(e) => setJobDescription2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Label>Email</Form.Label>
+            <Form.Control type='email' value={email} onChange={(e) => setEmail2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
           <Row>
         <Col md={6}>
           <Form.Group className='p-2'>
-            <Form.Label>Salary</Form.Label>
-            <Form.Control type="number" value={phone} onChange={(e) => setSalary2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Label>Phone No:</Form.Label>
+            <Form.Control type="number" value={phone} onChange={(e) => setPhone2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
           </Col>
           <Col md={6}>
@@ -108,17 +132,85 @@ function JobUpdateModal(props) {
             
               </select>
               </Form.Group>
+          </Col>
+
+          <Col md={6}>
+          <Form.Group className='p-2'>
+          <Form.Label>Course Studied</Form.Label>
+
+              <select name=""  className='form-select'
+                  value={courseStudied2}
+                  onChange={(e)=>setCourseStudied2(e.target.value)} style={{ border: '2px solid #ced4da' }}
+                >
+              <option selected disabled hidden > HIGHEST QUALIFICATION</option>
+              <option >Select One</option>
+                    <option value="FSD">FSD</option>
+                    <option value="DSA">DSA</option>
+                    <option value="ML-AI">ML-AI</option>
+                    <option value="RPA">RPA</option>
+                    <option value="ST">ST</option>
+                    <option value="CSA">CSA</option>
+            
+              </select>
+              </Form.Group>
 
           </Col>
-          </Row>
+
+
+          <Col md={6}>
           <Form.Group className='p-2'>
-            <Form.Label>Location</Form.Label>
-            <Form.Control type="text" value={location2} onChange={(e) => setLocation2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+          <Form.Label>Batch Details</Form.Label>
+
+              <select name=""  className='form-select'
+                  value={batchDetails2}
+                  onChange={(e)=>setBatchDetails2(e.target.value)} style={{ border: '2px solid #ced4da' }}
+                >
+              <option selected disabled hidden > HIGHEST QUALIFICATION</option>
+              <option >Select One</option>
+                    <option value="KKEM">KKEM</option>
+                    <option value="NORKA">NORKA</option>
+                    <option value="KDISC">KDISC</option>
+            
+              </select>
+              </Form.Group>
+
+          </Col>
+
+          </Row>
+
+          <Row>
+          <Col md={6}>
+          <Form.Group className='p-2'>
+          <Form.Label>Placement Status</Form.Label>
+
+              <select name=""  className='form-select'
+                  value={placementStatus2}
+                  onChange={(e)=>setPlacementStatus2(e.target.value)} style={{ border: '2px solid #ced4da' }}
+                >
+              <option selected disabled hidden > HIGHEST QUALIFICATION</option>
+              <option >Select One</option>
+                    <option value="Placed">Placed</option>
+                    <option value="Job-Seeking">Job-Seeking</option>
+            
+              </select>
+              </Form.Group>
+          </Col>
+
+          <Col md={6}>
+          <Form.Group className='p-2'>
+            <Form.Label>Company Name</Form.Label>
+            <Form.Control type='text' value={companyName2} onChange={(e) => setCompanyName2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
+          </Col>
+          </Row>
+
+        <Row>
+
+          </Row>
 
           <Modal.Footer>
 
-          <Button type="submit" variant="danger" onClick={onHide}>Update Job</Button>
+          <Button type="submit" variant="danger" onClick={onHide}>Update User</Button>
           <Button type="submit" onClick={onHide}>Cancel</Button>
           </Modal.Footer>
 
