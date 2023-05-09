@@ -90,19 +90,6 @@ const headers = {
               <Form.Group className='p-2'>
               <select name=""  className='form-select' onChange={(e)=>setHighestQualification(e.target.value)}>
               <option selected disabled hidden > HIGHEST QUALIFICATION</option>
-                <option >BCA</option>
-                <option >MCA</option>
-                <option>BSC</option>
-                <option>MSC</option>
-                <option>Bcom</option>
-                <option>Mcom</option>
-                <option>BBA</option>
-                <option>MBA</option>
-                <option>BTECH</option>
-                <option>MTECH</option>
-                <option>BA</option>
-                <option>MSC</option>
-                <option>MA</option>
                 <option >High School</option>
                 <option >Diploma</option>
                 <option>Bachelor</option>
