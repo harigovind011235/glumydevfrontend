@@ -11,7 +11,7 @@ const Aboutusscreen = lazy(() => import("./screens/Aboutus"));
 const Alumnijobscreen = lazy(() => import("./screens/AlumniJobScreen"));
 const AdminJobscreen = lazy(() => import("./screens/AdminJobscreen"));
 const ViewJob = lazy(()=> import("./screens/ViewJob"))
-const UpdateJob = lazy(() => import("./screens/UpdateJob"));
+
 
 
 
@@ -91,14 +91,7 @@ const routes = createBrowserRouter([
       </Suspense>
     ),
   },
-  {
-    path: "/updateJob",
-    element: (
-      <Suspense fallback={<Loader></Loader>}>
-     <UpdateJob/>
-      </Suspense>
-    ),
-  }
+  
 
 
 
