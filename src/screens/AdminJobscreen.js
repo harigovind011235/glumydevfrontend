@@ -10,23 +10,33 @@ const JobScreen = () => {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:4000/jobs")
-      .then((response) => response.json())
-      .then((data) => {
-        const formattedJobs = data.jobs.map((job) => {
-          const createdAt = new Date(job.createdAt).toLocaleString("en-US", { timeZone: "Asia/Kolkata" }) + " IST";
-          const updatedAt = new Date(job.updatedAt).toLocaleString("en-US", { timeZone: "Asia/Kolkata" }) + " IST";
-          return {
-            ...job,
-            createdAt,
-            updatedAt,
-          };
-        });
-        setJobs(formattedJobs);
-      })
-      .catch((error) => console.log(error));
-  }, [jobs]);
+    const fetchData = () => {
+      fetch("http://localhost:4000/jobs")
+        .then((response) => response.json())
+        .then((data) => {
+          const formattedJobs = data.jobs.map((job) => {
+            const createdAt = new Date(job.createdAt).toLocaleString("en-US", { timeZone: "Asia/Kolkata" }) + " IST";
+            const updatedAt = new Date(job.updatedAt).toLocaleString("en-US", { timeZone: "Asia/Kolkata" }) + " IST";
+            return {
+              ...job,
+              createdAt,
+              updatedAt,
+            };
+          });
+          setJobs(formattedJobs);
+        })
+        .catch((error) => console.log(error));
+    };
   
+    const intervalId = setInterval(() => {
+      fetchData();
+    }, 1500); // 5000 milliseconds = 5 seconds
+  
+    fetchData(); // fetch data for the first time when the component mounts
+  
+    return () => clearInterval(intervalId); // clean up the interval on component unmount
+  }, []);
+    
 
   const handleDelete = (id) => {
     fetch(`http://localhost:4000/jobs/${id}`, { method: 'DELETE' })

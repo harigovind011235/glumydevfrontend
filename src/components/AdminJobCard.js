@@ -81,6 +81,7 @@ function AdminJobCard(props) {
   onHide={() => {
     setShowUpdateModal(false);
   }}
+
 upJobId={upJobId}
 jobTitle = {jobTitle}
 companyName = {companyName}
