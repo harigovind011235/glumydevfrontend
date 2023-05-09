@@ -98,14 +98,6 @@ const routes = createBrowserRouter([
      <UpdateJob/>
       </Suspense>
     ),
-  },
-  {
-    path: "/useredit_admin",
-    element: (
-      <Suspense fallback={<Loader></Loader>}>
-     <AdminUserEdit/>
-      </Suspense>
-    ),
   }
 
 
