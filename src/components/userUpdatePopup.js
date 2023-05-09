@@ -74,7 +74,7 @@ function JobUpdateModal(props) {
             <Col md={6}>
           <Form.Group className='p-2'>
             <Form.Label>User Name</Form.Label>
-            <Form.Control type="text" value={username} onChange={(e) => setUsernname2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
+            <Form.Control type="text" value={username2} onChange={(e) => setUsernname2(e.target.value)} style={{ border: '2px solid #ced4da' }} />
           </Form.Group>
         </Col>
 
