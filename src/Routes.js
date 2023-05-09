@@ -12,7 +12,7 @@ const Alumnijobscreen = lazy(() => import("./screens/AlumniJobScreen"));
 const AdminJobscreen = lazy(() => import("./screens/AdminJobscreen"));
 const ViewJob = lazy(()=> import("./screens/ViewJob"))
 const UpdateJob = lazy(() => import("./screens/UpdateJob"));
-
+const AdminUserEdit = lazy(() => import("./screens/AdminUserControl"));
 
 
 const routes = createBrowserRouter([
@@ -96,6 +96,14 @@ const routes = createBrowserRouter([
     element: (
       <Suspense fallback={<Loader></Loader>}>
      <UpdateJob/>
+      </Suspense>
+    ),
+  },
+  {
+    path: "/useredit_admin",
+    element: (
+      <Suspense fallback={<Loader></Loader>}>
+     <AdminUserEdit/>
       </Suspense>
     ),
   }
