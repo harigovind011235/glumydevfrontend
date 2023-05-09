@@ -78,15 +78,20 @@ function AdminJobCard(props) {
 
       <JobUpdateModal
   show={showUpdateModal}
-onHide2={() => {
-    setShowUpdateModal(false);
-    window.location.reload();
-  }}
   onHide={() => {
     setShowUpdateModal(false);
   }}
 
 upJobId={upJobId}
+jobTitle = {jobTitle}
+companyName = {companyName}
+jobDescription={jobDescription}
+salary = {salary}
+location = {location}
+highestQualification = {highestQualification}
+postedBy = {postedBy}
+createdAt = {createdAt}
+updatedAt = {updatedAt}
 />
     </Col>
   )
