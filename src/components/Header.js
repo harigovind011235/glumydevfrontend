@@ -78,7 +78,7 @@ function Header() {
                   <Button variant="light">Current Jobs</Button>
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to={"/jobcreation"}>
+              <LinkContainer to={"/useredit_admin"}>
                 <Nav.Link>
                   <Button variant="light">Users</Button>
                 </Nav.Link>
